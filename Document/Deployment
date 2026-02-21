@@ -1,0 +1,35 @@
+=> Deployment Guide
+
+ 1. Local Setup:
+
+Step 1:pip install -r requirements.txt
+]Step 2:uvicorn backend.main:app --reload
+Open:http://localhost:8000/docs
+
+
+2. Production Deployment:
+
+Option 1: Docker
+i) Create Dockerfile
+ii) Expose port 8000
+
+Option 2: Cloud VM
+i) AWS EC2
+ii) Azure VM
+iii) GCP Compute Engine
+
+
+3. Performance Recommendations:
+
+i) Use GPU for embeddings
+ii) Switch to FAISS IVF for large scale
+iii) Use Redis cache for session storage
+iv) Persist vector index to disk
+
+
+4. Scaling Strategy:
+
+For multi-user systems:
+i) Partition vector index by user
+ii) Use distributed vector DB
+iii) Add load balancer
