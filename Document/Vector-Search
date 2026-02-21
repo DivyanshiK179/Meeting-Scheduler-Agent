@@ -1,0 +1,46 @@
+=> Vector Search Documentation
+
+1. Vector Database
+
+We use FAISS:
+IndexFlatL2
+Distance Metric:
+L2 (Euclidean distance)
+
+
+2. Embedding Model
+
+Model: all-MiniLM-L6-v2  
+Dimension: 384  
+Advantages:
+i) Lightweight
+ii) Fast
+iii) Good semantic performance
+
+
+3. Storage Structure
+
+Each entry contains:
+{
+    embedding: [384-dim vector],
+    metadata: {
+        user_id,
+        type,
+        date,
+        preference_text
+    }
+}
+
+
+4. Retrieval Strategy
+
+i) Convert query to embedding
+ii) Perform top-k search
+iii) Filter by user_id
+iv) Extract relevant metadata
+
+
+5. Time Complexity
+
+Search: O(n) for flat index  
+Memory: O(n × d)
