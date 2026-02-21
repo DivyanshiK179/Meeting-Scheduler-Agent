@@ -1,0 +1,49 @@
+=> API Design Documentation
+
+1. Base URL:
+
+http://localhost:8000
+
+
+2. Endpoints:
+
+## POST /add_calendar
+Request:
+{
+    "user_id": "u1",
+    "date": "2026-02-21",
+    "busy_slots": [
+        {"start": "10:00", "end": "11:00"}
+    ]
+}
+
+Response:
+{
+    "status": "calendar stored"
+}
+
+
+## POST /add_preference
+Request:
+{
+    "user_id": "u1",
+    "preference_text": "I prefer morning meetings"
+}
+Response:
+{
+    "status": "preference stored"
+}
+
+
+## POST /schedule
+Request:
+{
+    "user_id": "u1",
+    "duration_minutes": 30
+}
+Response:
+{
+    "suggestions": [
+        {"start": "09:00", "end": "09:30"}
+    ]
+}
