@@ -1,0 +1,47 @@
+=> RAG Pipeline Documentation
+
+1. Definition
+
+Retrieval-Augmented Generation (RAG) combines:
+i) Vector retrieval
+ii) Contextual reasoning
+iii) Optimized output generation
+
+
+2. Pipeline Steps
+
+Step 1: Query Creation
+User requests:
+"Schedule 30 minute meeting"
+Converted to:
+"User scheduling preferences for 30 minute meeting"
+
+Step 2: Embedding Generation
+Query → 384 dimensional embedding vector
+
+Step 3: Vector Search
+FAISS retrieves top-k similar memory items.
+These may include:
+i) User preferences
+ii) Past scheduling behavior
+iii) Calendar summaries
+
+Step 4: Context Assembly
+Retrieved metadata compiled into context block.
+
+Step 5: Slot Generation
+Scheduler computes:
+i) Free intervals
+ii) Valid duration slots
+
+Step 6: Optimization
+Slots ranked using:
+Score = PreferenceWeight - ConflictPenalty
+
+
+3. Latency Optimization
+
+i) In-memory vector search
+ii)  Pre-compressed calendar data
+iii) No external API calls
+iv) Minimal context size
