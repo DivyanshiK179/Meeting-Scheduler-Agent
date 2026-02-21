@@ -1,0 +1,46 @@
+=> Scheduler Optimization
+
+1. Objective:
+
+Maximize scheduling efficiency while respecting:
+i) User preferences
+ii) Duration constraints
+iii) Work hours
+iv) Conflict avoidance
+
+
+2. Slot Generation:
+
+Working hours:
+09:30 – 18:30
+Algorithm:
+i) Sort busy intervals
+ii) Identify gaps
+iii) Validate duration
+
+
+3. Ranking Algorithm:
+
+Score components:
+PreferenceScore:
++10 if matches preferred time window
+ConflictPenalty:
+i) High penalty if overlap
+FragmentationPenalty:
+ii) Penalize short fragmented slots
+
+
+4. Optimization Formula:
+
+Score = PreferenceWeight 
+        i) ConflictPenalty
+        ii) TimeFragmentationCost
+
+
+5. Example:
+
+User prefers mornings.
+Available slots:
+09:30–10:30
+14:00–15:00
+Morning slot gets higher score.
