@@ -1,0 +1,64 @@
+=>System Architecture:
+
+1. High-Level Architecture:
+
+User → FastAPI → Scheduler Engine → RAG Engine → Vector Store
+                                 ↓
+                          Compression Module
+
+
+2. Component Breakdown:
+
+a) API Layer:
+Handles:
+i) Calendar ingestion
+ii) Preference storage
+iii) Schedule requests
+
+b) Compression Layer
+i) Merges overlapping busy intervals
+ii) Reduces redundant calendar blocks
+iii) Optimizes storage size
+
+c) Embedding Layer
+i) Converts text to dense vectors
+ii) Uses all-MiniLM-L6-v2 model
+iii) Embedding dimension: 384
+
+d) Vector Store
+i) FAISS IndexFlatL2
+ii) In-memory vector database
+iii) Stores metadata with embeddings
+
+e) Retriever
+i) Converts query into embedding
+ii) Retrieves top-k relevant context
+
+f) Scheduler Engine
+i) Detects free intervals
+ii) Validates duration constraints
+iii) Outputs candidate slots
+
+h) Optimizer
+i) Scores slots based on preferences
+ii) Ranks and returns best matches
+
+
+3. Data Flow
+
+i) User uploads calendar
+ii) System compresses busy intervals
+iii) Preferences stored as embeddings
+iv) User requests scheduling
+v) Context retrieved via FAISS
+vi) Slots generated
+vii) Ranked results returned
+
+
+4. Why RAG?
+
+RAG allows:
+i) Context-aware scheduling
+ii) Memory-driven personalization
+iii) Scalable retrieval
+iv) Low latency decision making
