@@ -1,0 +1,41 @@
+=> Calendar Compression Strategy
+
+1. Why Compression?
+
+Calendars often contain:
+i) Repeated time blocks
+ii) Overlapping events
+iii) Redundant intervals
+This increases:
+i) Storage cost
+ii) Search time
+iii) Retrieval latency
+
+
+2. Compression Methods:
+
+a) Interval Merging:
+If:
+10:00–11:00
+10:30–01:00
+Merge into:
+10:00–01:00
+
+b) Bitmap Encoding (Optional Future Enhancement):
+Each day:
+3 AM–7 PM = 960 minutes
+Represent availability as 960-length binary vector.
+
+c) Weekly Pattern Summarization:
+Identify:
+i) Frequent busy hours
+ii) Repeated meeting patterns
+Store summary embedding instead of raw logs.
+
+
+3. Benefits:
+
+i) Reduced memory usage
+ii) Faster retrieval
+iii) Lower FAISS index size
+iv) Improved scheduling speed
